@@ -1,0 +1,68 @@
+.header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+  border-bottom: 0.1px solid lightgray;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  z-index: 999;
+}
+
+.header__left {
+  display: flex;
+}
+
+.header__left > img {
+  object-fit: contain;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.header__search {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  height: 22px;
+  color: gray;
+  background-color: #eef3f8;
+}
+
+.header__search > input {
+  outline: none;
+  border: none;
+  background: none;
+}
+.header__rightSide {
+  display: flex;
+}
+
+.header__rightSideBorder {
+  border-left: 1px solid lightgray;
+  margin-right: 20px;
+}
+
+.header__rightSide-premium {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__rightSide-premium > a {
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #6a6154;
+}
+
+.header__rightSide-premium > a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* @media screen and (min-width: 20em) {
+  br {
+    display: none;   /* hide the BR tag for wider screens (i.e. disable the line break) */
+/* } }  */

@@ -1,0 +1,157 @@
+.side-drawer {
+  height: calc(100vh - 52px);
+  height: 100vh;
+  /* height: 100%; */
+  background-color: white;
+  box-shadow: 1px 0px 7px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 62px;
+  right: 0;
+  width: 70%; /* 70% of the page */
+  max-width: 400px;
+  border-top-left-radius: 10px;
+  text-align: center;
+  z-index: 200; /* so this is above the backdrop */
+  transform: translateX(
+    100%
+  ); /*   transform: translateX(-100%); if left side */
+
+  /* how long the transform/movement be */
+  /* start fast and end slow */
+  /* transition: transform 0.3s ease-out; */
+  transition: transform 0.3s cubic-bezier(0, 0, 0.3, 1);
+}
+
+/* this will ease the drawer when opening and closing */
+.side-drawer.open {
+  transform: translateX(0); /* this is the position I want to have it */
+}
+
+.sideDrawer__close {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+  color: gray;
+}
+
+.sideDrawer_top,
+.sideDrawer_bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid lightgray;
+  margin: 10px auto;
+}
+
+.sideDrawer_text {
+  width: 100%;
+  border-bottom: 1px solid lightgray;
+}
+
+.sideDrawer_text > h3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: black;
+  font-weight: 400;
+  padding: 10px;
+}
+
+.sideDrawer__Products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  padding: 0;
+  width: 330px;
+  height: 200px;
+}
+
+.sideDrawer__Products-Icon > .headerOption > svg {
+  border: 1px solid lightgray;
+  padding: 5px;
+  color: #0177b7;
+  background-color: white;
+  box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.3);
+  margin-bottom: 10px;
+}
+
+/* .sideDrawer_bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+  border-radius: 10px;
+  background-color: white;
+  margin: 10px auto;
+  border: 1px solid lightgray;
+} */
+
+.sideDrawer__business {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.sideDrawer__businessServices {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 20px;
+}
+
+.sideDrawer__businessServices > a > p {
+  font-size: 11px;
+  color: gray;
+  font-weight: 400;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sideDrawer___headings {
+  font-size: 15px;
+  color: gray;
+  font-weight: bolder;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sideDrawer__businessServices > a {
+  text-decoration: none;
+}
+
+.sideDrawer_companypage {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  border-top: 1px solid lightgray;
+}
+
+.sideDrawer_companypage > h4,
+span {
+  font-size: 15px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.sideDrawer_companypage > h4 {
+  margin-left: 37px;
+}
+
+.close:hover {
+  background-color: whitesmoke;
+  border-radius: 25px;
+}
+
+/* responsive design*/
+/*  If I am below 769px then implement the below rules */
+/* won't be available on DESKTOP mode / NO sideDraw on desktop...*/
+
+/* @media (min-width: 796px) {
+  .sideDrawer {
+    display: none;
+  }
+} */
