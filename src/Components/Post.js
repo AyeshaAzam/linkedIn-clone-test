@@ -23,7 +23,11 @@ const Post = forwardRef(
 
         <div className="post__body">
           <p>{message}</p>
-          <p>{likes}</p>
+        </div>
+
+        {/* just for test, will be deleted soon... */}
+        <div>
+          <h2>{likes}</h2>
         </div>
 
         <div className="post__buttons">

@@ -18,6 +18,7 @@ function Feed() {
   const user = useSelector(selectUser);
   const [posts, setPosts] = useState([]);
   const [input, setInput] = useState("");
+  console.log("<<<<", posts);
 
   useEffect(() => {
     db.collection("posts")
@@ -49,10 +50,10 @@ function Feed() {
     setInput(""); // clean the input field
   };
 
-
   //Clicking “like” will trigger the following function:
   const clickLike = (postId, userId) => {
     let copyOfPostsState = [...posts];
+    console.log("<<<<<", copyOfPostsState);
 
     for (let i = 0; i < copyOfPostsState; i++) {
       const loopPostId = copyOfPostsState[i].id;
@@ -68,6 +69,23 @@ function Feed() {
 
     setPosts(copyOfPostsState);
   };
+
+  //Update the posts with the new posts
+  // you need a useEffect
+  // useEffect(() => {
+  //   // code that updates firebase "posts" collection, to keep the DB updated too
+  //   db.collection("posts")
+  //     .orderBy("timestamp", "desc")
+  //     .onSnapshot((snapshot) =>
+  //       setPosts(
+  //         snapshot.docs.map((doc) => ({
+  //           id: doc.id,
+  //           data: doc.data(),
+  //           likes: doc.likes,
+  //         }))
+  //       )
+  //     );
+  // }, [posts]); // triggered only when the "posts" state changes
 
   return (
     <div className="feed">
@@ -103,22 +121,16 @@ function Feed() {
       {/* the props are coming from the database, see above */}
 
       <FlipMove>
-        {posts.map(
-          ({
-            id,
-            clickLike,
-            data: { name, description, message, photoUrl },
-          }) => (
-            <Post
-              key={id}
-              name={name}
-              description={description}
-              message={message}
-              photoUrl={photoUrl}
-              likes={clickLike}
-            />
-          )
-        )}
+        {posts.map(({ id, data: { name, description, message, photoUrl } }) => (
+          <Post
+            key={id}
+            name={name}
+            description={description}
+            message={message}
+            photoUrl={photoUrl}
+            likes={clickLike}
+          />
+        ))}
       </FlipMove>
     </div>
   );
